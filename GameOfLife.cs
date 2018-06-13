@@ -174,7 +174,7 @@ namespace GameOfLife
             }
             Console.WriteLine();
 
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Color explanation");
             Console.WriteLine();
 
