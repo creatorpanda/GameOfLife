@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +14,9 @@ namespace GameOfLife
         //method that prints Emulator's Logo.
         static void Logo()
         {
+
+
+
             Console.ForegroundColor = ConsoleColor.Green;
 
             Console.WriteLine(" _____                                __   _      _  __     ");
@@ -33,10 +36,12 @@ namespace GameOfLife
         //Programmer's (that's me) Signature.
         static void Signature()
         {
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine();
             Console.WriteLine("------------------------------------------------------------------------------");
             Console.WriteLine("GitHub: creatorpanda");
             Console.WriteLine("creation of 2018");
+            Console.ResetColor();
             End();
 
         }
@@ -59,11 +64,12 @@ namespace GameOfLife
         static void End()
         {
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("*");
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.Write("Press ENTER to close this window");
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("*");
             Console.ResetColor();
             Console.ReadLine();
@@ -224,7 +230,7 @@ namespace GameOfLife
                     //if first corner
                     if ((i == 0) & (j == 0))
                     {
-                        unitsArray[i, j] =        dishArray[0, 1] +
+                        unitsArray[i, j] = dishArray[0, 1] +
                                                  dishArray[1, 0] +
                                                  dishArray[1, 1];
                     }
@@ -232,7 +238,7 @@ namespace GameOfLife
                     //if second corner
                     else if ((i == 0) & (j == 9))
                     {
-                        unitsArray[i, j] =        dishArray[0, 8] +
+                        unitsArray[i, j] = dishArray[0, 8] +
                                                  dishArray[1, 8] +
                                                  dishArray[1, 9];
                     }
@@ -240,7 +246,7 @@ namespace GameOfLife
                     //if third corner
                     else if ((i == 9) & (j == 0))
                     {
-                        unitsArray[i, j] =        dishArray[8, 0] +
+                        unitsArray[i, j] = dishArray[8, 0] +
                                                  dishArray[8, 1] +
                                                  dishArray[9, 1];
                     }
@@ -248,7 +254,7 @@ namespace GameOfLife
                     //if fourth corner
                     else if ((i == 9) & (j == 9))
                     {
-                        unitsArray[i, j] =        dishArray[9, 8] +
+                        unitsArray[i, j] = dishArray[9, 8] +
                                                  dishArray[8, 8] +
                                                  dishArray[8, 9];
                     }
@@ -256,7 +262,7 @@ namespace GameOfLife
                     //if north bar
                     else if ((i == 0) & ((j > 0) & (j < 9)))
                     {
-                        unitsArray[i, j] =        dishArray[0, j - 1] +
+                        unitsArray[i, j] = dishArray[0, j - 1] +
                                                  dishArray[1, j - 1] +
                                                  dishArray[1, j] +
                                                  dishArray[1, j + 1] +
@@ -266,7 +272,7 @@ namespace GameOfLife
                     //if south bar
                     else if ((i == 9) & ((j > 0) & (j < 9)))
                     {
-                        unitsArray[i, j] =        dishArray[9, j - 1] +
+                        unitsArray[i, j] = dishArray[9, j - 1] +
                                                  dishArray[8, j - 1] +
                                                  dishArray[8, j] +
                                                  dishArray[8, j + 1] +
@@ -276,7 +282,7 @@ namespace GameOfLife
                     //if west bar
                     else if (((i > 0) & (i < 9)) & (j == 0))
                     {
-                        unitsArray[i, j] =        dishArray[i - 1, 0] +
+                        unitsArray[i, j] = dishArray[i - 1, 0] +
                                                  dishArray[i - 1, 1] +
                                                  dishArray[i, 1] +
                                                  dishArray[i + 1, 1] +
@@ -286,7 +292,7 @@ namespace GameOfLife
                     //if east bar
                     else if (((i > 0) & (i < 9)) & (j == 9))
                     {
-                        unitsArray[i, j] =        dishArray[i - 1, 9] +
+                        unitsArray[i, j] = dishArray[i - 1, 9] +
                                                  dishArray[i - 1, 8] +
                                                  dishArray[i, 8] +
                                                  dishArray[i + 1, 8] +
@@ -296,7 +302,7 @@ namespace GameOfLife
                     //if cube body
                     else
                     {
-                        unitsArray[i, j] =        dishArray[i - 1, j - 1] +
+                        unitsArray[i, j] = dishArray[i - 1, j - 1] +
                                                  dishArray[i - 1, j] +
                                                  dishArray[i - 1, j + 1] +
                                                  dishArray[i, j + 1] +
@@ -317,10 +323,10 @@ namespace GameOfLife
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    if ( (unitsArray[i, j] < 2) & (dishArray[i,j]==1) ) { dishArray[i, j] = 0; }
+                    if ((unitsArray[i, j] < 2) & (dishArray[i, j] == 1)) { dishArray[i, j] = 0; }
                     //else if ( ( (unitsArray[i, j] ==2) | (unitsArray[i, j] == 3) ) & (dishArray[i, j] == 1) ) { dishArray[i, j] = 1; } NOT NEEDED - happens anyway.
-                    else if ( (unitsArray[i, j] >= 4) & (dishArray[i, j] == 1) ) { dishArray[i, j] = 0; }
-                    else if ( (unitsArray[i, j] == 3) & (dishArray[i, j] == 0) ) { dishArray[i, j] = 1; }
+                    else if ((unitsArray[i, j] >= 4) & (dishArray[i, j] == 1)) { dishArray[i, j] = 0; }
+                    else if ((unitsArray[i, j] == 3) & (dishArray[i, j] == 0)) { dishArray[i, j] = 1; }
 
                 }
             }
@@ -451,7 +457,7 @@ namespace GameOfLife
 
             while ((TerminateExecution(dishArray, previousDishArray) == false) & (turns < 100))
             {
-                
+
                 Console.Clear();
 
                 generations++;
@@ -466,10 +472,15 @@ namespace GameOfLife
 
                 ArrayTransferer(tempDishArray, dishArray);
 
+
                 TimeLapse(generations);
                 ArrayPrinter(dishArray);
+
+                UnitsCalculator(dishArray, unitsArray);
                 UnitsCounterPrinter(unitsArray);
+
                 Thread.Sleep(500);
+             
             }
             Wait();
 
@@ -539,7 +550,7 @@ namespace GameOfLife
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("About Game");
                 Console.WriteLine();
-       
+
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("7) ");
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -561,7 +572,7 @@ namespace GameOfLife
                 {
                     input = Console.ReadLine();
 
-                    if (string.IsNullOrEmpty(input)) 
+                    if (string.IsNullOrEmpty(input))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write("*");
@@ -572,7 +583,7 @@ namespace GameOfLife
                         Console.ResetColor();
                     }
 
-                } while (string.IsNullOrEmpty(input)); 
+                } while (string.IsNullOrEmpty(input));
                 ;
 
                 option = int.Parse(input); //String to int conversion.
@@ -606,7 +617,7 @@ namespace GameOfLife
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write("Random Unit Generation: ");
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("Generate a random pattern and observe the units evolve throughout time. The outcome is almost always different.");
+                    Console.WriteLine("Generate a random pattern and observe the units evolve with time. The outcome is almost always different.");
                     Console.WriteLine();
 
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -689,7 +700,7 @@ namespace GameOfLife
                 {
 
 
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.Clear();
                     Console.WriteLine(" ______                 _       _               _______                  _             _           _ ");
@@ -710,13 +721,13 @@ namespace GameOfLife
 
         static void Main(string[] args)
         {
-
+            Console.SetWindowSize(189, 57); //change window size to recommended.
+            
             //2d arrays' creation
             int[,] petriDish = new int[10, 10];           //2D array that trades values with "tempDish" and carries the units' positions.
             int[,] previousPetriDish = new int[10, 10];   //2D array for comparing to "petriDish".
             int[,] tempDish = new int[10, 10];            //2D array for processing info.
             int[,] unitsCounter = new int[10, 10];        //2D array for saving neighbors' quantity.
-
 
             Menu(petriDish, previousPetriDish, tempDish, unitsCounter); //everything starts here.
 
