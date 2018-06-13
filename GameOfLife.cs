@@ -125,6 +125,18 @@ namespace GameOfLife
                 System.Console.WriteLine();
             }
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("1");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(": Living unit");
+
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("0");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(": Empty Space");
+            Console.WriteLine();
+
             Console.ResetColor();
         }
 
@@ -144,17 +156,48 @@ namespace GameOfLife
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    if (arrayName[i,j] == 1) { Console.ForegroundColor = ConsoleColor.White;}
-                    else if (arrayName[i, j] == 2) { Console.ForegroundColor = ConsoleColor.Green; }
-                    else if (arrayName[i, j] == 3) { Console.ForegroundColor = ConsoleColor.DarkGreen; }
+                    if (arrayName[i, j] == 1) { Console.ForegroundColor = ConsoleColor.White; }
+                    else if (arrayName[i, j] == 2) { Console.ForegroundColor = ConsoleColor.DarkGreen; }
+                    else if (arrayName[i, j] == 3) { Console.ForegroundColor = ConsoleColor.Green; }
                     else if (arrayName[i, j] == 4) { Console.ForegroundColor = ConsoleColor.Red; }
                     else if (arrayName[i, j] > 4) { Console.ForegroundColor = ConsoleColor.DarkRed; }
                     else if (arrayName[i, j] == 0) { Console.ForegroundColor = ConsoleColor.DarkGray; }
-                    Console.Write(arrayName[i,j]);
+                    Console.Write(arrayName[i, j]);
                 }
                 System.Console.WriteLine();
             }
             Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Color explanation");
+            Console.WriteLine();
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("White");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(":      1 neighbor            (underpopulation)");
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("Dark Green");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(": 2 neighbors           (fine quantity of neighbors)");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("Green");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(":      3 neighbors           (fine quantity of neighbors + breeding)");
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("Red");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(":        4 neighbors           (overpopulation + death)");
+
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("Dark Red");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(":   more than 4 neighbors (overpopulation + death)");
+            Console.WriteLine();
+
             Console.ResetColor();
         }
 
