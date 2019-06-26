@@ -458,8 +458,6 @@ namespace GameOfLife
             while ((TerminateExecution(dishArray, previousDishArray) == false) & (turns < 100))
             {
 
-                Console.Clear();
-
                 generations++;
                 turns++;
 
@@ -480,7 +478,8 @@ namespace GameOfLife
                 UnitsCounterPrinter(unitsArray);
 
                 Thread.Sleep(500);
-             
+                Console.Clear();
+
             }
             Wait();
 
@@ -722,7 +721,7 @@ namespace GameOfLife
         static void Main(string[] args)
         {
             //Console.SetWindowSize(189, 57); //Change window size to recommended. Disabled this command because the program crashes on some other devices.
-            
+
             //2d arrays' creation
             int[,] petriDish = new int[10, 10];           //2D array that trades values with "tempDish" and carries the units' positions.
             int[,] previousPetriDish = new int[10, 10];   //2D array for comparing to "petriDish".
